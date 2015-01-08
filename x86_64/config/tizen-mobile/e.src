@@ -48,6 +48,12 @@ group "E_Config" struct {
       value "priority" int: 0;
     }
   }
+  group "bad_modules" list {
+    value "module" string: "e-mod-tizen-wm-policy";
+    value "module" string: "e-mod-tizen-keyrouter";
+    value "module" string: "e-mod-tizen-effect";
+    value "module" string: "e-mod-tizen-devicemgr";
+  }
   value "window_placement_policy" int: 0;
   value "window_grouping" int: 0;
   value "focus_policy" int: 0;

@@ -16,6 +16,18 @@ AC_ARG_WITH(eet-eet,
 ])
 AC_SUBST(eet_eet)
 
+PKG_CHECK_MODULES(EDJE, [edje])
+AC_ARG_WITH(edje-cc,
+  AC_HELP_STRING([--with-edje-cc=PATH], [specify a specific path to edje_cc]),
+  [
+    v=$withval;
+    EDJE_CC=$v
+  ],[
+    EDJE_CC=$(pkg-config --variable=prefix edje)/bin/edje_cc
+  ]
+)
+AC_SUBST(EDJE_CC)
+
 AC_CONFIG_FILES([
 Makefile
 arm/Makefile
@@ -33,5 +45,7 @@ emulator/config/tizen-mobile/Makefile
 x86_64/Makefile
 x86_64/config/Makefile
 x86_64/config/tizen-mobile/Makefile
+data/Makefile
+data/backgrounds/Makefile
 ])
 AC_OUTPUT

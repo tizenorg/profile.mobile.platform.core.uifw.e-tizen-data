@@ -1,15 +1,5 @@
 group "E_Config_Bindings" struct {
   value "config_version" int: 0;
-  group "mouse_bindings" list {
-    group "E_Config_Binding_Mouse" struct {
-      value "context" int: 3;
-      value "modifiers" int: 0;
-      value "action" string: "menu_show";
-      value "params" string: "main";
-      value "button" uchar: 1;
-      value "any_mod" uchar: 0;
-    }
-  }
   group "signal_bindings" list {
     group "E_Config_Binding_Signal" struct {
       value "context" int: 2;

@@ -54,6 +54,20 @@ group "E_Config" struct {
     value "module" string: "e-mod-tizen-effect";
     value "module" string: "e-mod-tizen-devicemgr";
   }
+  group "client_types" list {
+    group "E_Config_Client_Type" struct {
+      value "name" string: "HOME_SCREEN"
+      value "clas" string: "HOME_SCREEN"
+      value "window_type" int: 8;
+      value "client_type" int: 1;
+    }
+    group "E_Config_Client_Type" struct {
+      value "name" string: "LOCK_SCREEN"
+      value "clas" string: "LOCK_SCREEN"
+      value "window_type" int: 12;
+      value "client_type" int: 2;
+    }
+  }
   value "window_placement_policy" int: 0;
   value "window_grouping" int: 0;
   value "focus_policy" int: 0;

@@ -1,5 +1,5 @@
 Name:          e-tizen-data
-Version:       0.0.2
+Version:       0.0.3
 Release:       0
 Summary:       Enlightenment data files
 Group:         Graphics & UI Framework/Other

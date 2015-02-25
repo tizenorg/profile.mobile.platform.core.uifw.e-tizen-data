@@ -56,14 +56,14 @@ group "E_Config" struct {
   }
   group "client_types" list {
     group "E_Config_Client_Type" struct {
-      value "name" string: "HOME_SCREEN"
-      value "clas" string: "HOME_SCREEN"
+      value "name" string: "HOME_SCREEN";
+      value "clas" string: "HOME_SCREEN";
       value "window_type" int: 8;
       value "client_type" int: 1;
     }
     group "E_Config_Client_Type" struct {
-      value "name" string: "LOCK_SCREEN"
-      value "clas" string: "LOCK_SCREEN"
+      value "name" string: "LOCK_SCREEN";
+      value "clas" string: "LOCK_SCREEN";
       value "window_type" int: 12;
       value "client_type" int: 2;
     }

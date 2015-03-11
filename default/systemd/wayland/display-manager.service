@@ -1,0 +1,10 @@
+[Unit]
+Description=Display manager setup service
+Requires=enlightenment.service
+After=enlightenment.service
+
+[Service]
+Type=oneshot
+
+[Install]
+WantedBy=graphical.target

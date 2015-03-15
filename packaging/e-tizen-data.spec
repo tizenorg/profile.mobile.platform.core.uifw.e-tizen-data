@@ -46,21 +46,28 @@ rm -rf %{buildroot}
 %__cp -afr default/config/tizen-mobile/*.cfg %{buildroot}/usr/share/enlightenment/data/config/tizen-mobile
 %__cp -afr default/backgrounds/*.edj     %{buildroot}/usr/share/enlightenment/data/backgrounds
 
-%__mkdir_p %{buildroot}%{_unitdir}
-
 %if %{with x}
-%__cp -afr default/systemd/x11/enlightenment.service    %{buildroot}%{_unitdir}/
+%__mkdir_p %{buildroot}%{_unitdir}
+%__cp -afr default/x11/enlightenment.service %{buildroot}%{_unitdir}
 %__mkdir_p %{buildroot}%{_unitdir}/graphical.target.wants
 ln -sf ../enlightenment.service %{buildroot}%{_unitdir}/graphical.target.wants/enlightenment.service
 %endif
 
 %if %{with wayland}
-%__cp -afr default/systemd/wayland/display-manager.path %{buildroot}%{_unitdir}
-%__cp -afr default/systemd/wayland/display-manager.service %{buildroot}%{_unitdir}
-%__cp -afr default/systemd/wayland/display-manager-run.service %{buildroot}%{_unitdir}
-mkdir -p %{buildroot}%{_unitdir}/multi-user.target.wants
-ln -sf ../display-manager.service %{buildroot}%{_unitdir}/multi-user.target.wants/display-manager.service
-ln -sf ../display-manager-run.service %{buildroot}%{_unitdir}/multi-user.target.wants/display-manager-run.service
+%__mkdir_p %{buildroot}%{_unitdir}
+%__cp -afr default/wayland/enlightenment.service %{buildroot}%{_unitdir}
+%__cp -afr default/wayland/display-manager.path %{buildroot}%{_unitdir}
+%__cp -afr default/wayland/display-manager.service %{buildroot}%{_unitdir}
+%__cp -afr default/wayland/display-manager-run.service %{buildroot}%{_unitdir}
+%__mkdir_p %{buildroot}%{_sysconfdir}/sysconfig
+%__cp -afr default/wayland/enlightenment %{buildroot}%{_sysconfdir}/sysconfig
+%__mkdir_p %{buildroot}%{_sysconfdir}/profile.d
+%__cp -afr default/wayland/enlightenment.sh %{buildroot}%{_sysconfdir}/profile.d
+
+%__mkdir_p %{buildroot}%{_unitdir}/graphical.target.wants
+ln -sf ../enlightenment.service %{buildroot}%{_unitdir}/graphical.target.wants/enlightenment.service
+ln -sf ../display-manager.service %{buildroot}%{_unitdir}/graphical.target.wants/display-manager.service
+ln -sf ../display-manager-run.service %{buildroot}%{_unitdir}/graphical.target.wants/display-manager-run.service
 %endif
 
 %pre
@@ -89,9 +96,13 @@ fi
 %{_unitdir}/graphical.target.wants/enlightenment.service
 %endif
 %if %{with wayland}
+%{_unitdir}/enlightenment.service
 %{_unitdir}/display-manager.path
 %{_unitdir}/display-manager.service
 %{_unitdir}/display-manager-run.service
-%{_unitdir}/multi-user.target.wants/display-manager.service
-%{_unitdir}/multi-user.target.wants/display-manager-run.service
+%{_unitdir}/graphical.target.wants/enlightenment.service
+%{_unitdir}/graphical.target.wants/display-manager.service
+%{_unitdir}/graphical.target.wants/display-manager-run.service
+%{_sysconfdir}/sysconfig/enlightenment
+%{_sysconfdir}/profile.d/enlightenment.sh
 %endif

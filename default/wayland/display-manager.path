@@ -1,7 +1,7 @@
 [Unit]
-Description=Wait for Xorg socket
+Description=Wait for display daemon socket
 Requires=display-manager-run.service
 After=display-manager-run.service
 
 [Path]
-PathExists=/usr/bin/Xorg
+PathExists=/usr/bin/enlightenment

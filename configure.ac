@@ -118,18 +118,6 @@ AC_ARG_WITH(engine,
 AC_SUBST([COMP_ENGINE])
 ### Done COMP_ENGINE
 
-## SYSTEMD UNIT DIR
-AC_ARG_WITH([systemdunitdir],
-            AC_HELP_STRING([--with-systemdunitdir=DIR], [path to systemd services directory]),
-            [SYSTEMD_UNIT_DIR=${withval}])
-AC_SUBST([SYSTEMD_UNIT_DIR])
-## Done SYSTEMD_UNIT_DIR
-
-## SYSTEMD FILE
-AM_CONDITIONAL(WITH_SYSTEMD_FILE_X11, test "$WITH_X")
-AM_CONDITIONAL(WITH_SYSTEMD_FILE_WAYLAND, test "$WITH_WAYLAND")
-## Done SYSTEMD FILES
-
 AC_CONFIG_FILES([
 default/config/tizen-mobile/e.src
 default/config/tizen-mobile/e_comp.src
@@ -139,7 +127,6 @@ default/Makefile
 default/backgrounds/Makefile
 default/config/Makefile
 default/config/tizen-mobile/Makefile
-default/systemd/Makefile
 ])
 AC_OUTPUT([
 ])

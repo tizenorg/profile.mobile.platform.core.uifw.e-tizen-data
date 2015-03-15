@@ -1,0 +1,4 @@
+# env for display-manager-service.run
+XDG_RUNTIME_DIR=/tmp
+ECORE_DRM_TTY=/dev/tty1
+E_START=enlightenment

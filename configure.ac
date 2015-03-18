@@ -118,6 +118,14 @@ AC_ARG_WITH(engine,
 AC_SUBST([COMP_ENGINE])
 ### Done COMP_ENGINE
 
+### skip first damage
+AC_ARG_ENABLE([skip-first-damage],
+              AC_HELP_STRING([--disable-skip-first-damage], [disable skip first damage]),
+              [SKIP_FIRST_DAMAGE=${enableval}], [SKIP_FIRST_DAMAGE=1])
+AC_SUBST([SKIP_FIRST_DAMAGE])
+AM_SUBST_NOTMAKE([SKIP_FIRST_DAMAGE])
+### Done SKIP_FIRST_DAMAGE
+
 AC_CONFIG_FILES([
 default/config/tizen-mobile/e.src
 default/config/tizen-mobile/e_comp.src

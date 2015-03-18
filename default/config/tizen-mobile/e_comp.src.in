@@ -243,6 +243,7 @@ group "Comp_Config" struct {
     value "nofade" uchar: 0;
     value "smooth_windows" uchar: 0;
     value "first_draw_delay" double: 0.1499999999999999944488849;
+    value "skip_first_damage" uchar: @SKIP_FIRST_DAMAGE@;
     value "disable_screen_effects" uchar: 0;
     value "enable_advanced_features" uchar: 0;
     value "fast_popups" uchar: 0;

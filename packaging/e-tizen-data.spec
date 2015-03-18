@@ -34,6 +34,7 @@ cp -a %{SOURCE1001} .
 %endif
     --with-systemdunitdir=%{_unitdir} \
     --with-engine=gl \
+    --disable-skip-first-damage \
     --prefix=/usr/share/enlightenment
 make
 

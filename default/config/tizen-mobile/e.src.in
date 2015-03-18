@@ -22,8 +22,8 @@ group "E_Config" struct {
   value "edge_flip_dragging" int: 0;
   value "use_shaped_win" int: 0;
   value "no_module_delay" int: 1;
-  @enabled_modules@
-  @bad_modules@
+  @ENABLED_MODULES@
+  @BAD_MODULES@
   group "client_types" list {
     group "E_Config_Client_Type" struct {
       value "name" string: "HOME_SCREEN";

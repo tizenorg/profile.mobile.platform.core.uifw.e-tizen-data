@@ -42,7 +42,7 @@ AC_ARG_WITH([wayland],
 
 ### define MODULES
 if test "$WITH_X"; then
- enabled_modules='group "modules" list {
+ ENABLED_MODULES='group "modules" list {
     group "E_Config_Module" struct {
       value "name" string: "e-mod-tizen-wm-policy";
       value "enabled" uchar: 1;
@@ -68,14 +68,15 @@ if test "$WITH_X"; then
       value "priority" int: 0;
     }
   }'
- bad_modules='group "bad_modules" list {
+ BAD_MODULES='group "bad_modules" list {
     value "module" string: "e-mod-tizen-wm-policy";
     value "module" string: "e-mod-tizen-keyrouter";
     value "module" string: "e-mod-tizen-effect";
     value "module" string: "e-mod-tizen-devicemgr";
   }'
+ FIRST_DRAW_DELAY=2.5
 elif test "$WITH_WAYLAND"; then
- enabled_modules='group "modules" list {
+ ENABLED_MODULES='group "modules" list {
     group "E_Config_Module" struct {
       value "name" string: "wl_drm";
       value "enabled" uchar: 1;
@@ -95,12 +96,15 @@ elif test "$WITH_WAYLAND"; then
       value "priority" int: 0;
     }
   }'
- bad_modules=''
+ BAD_MODULES=''
+ FIRST_DRAW_DELAY=0.1499999999999999944488849
 fi
-AC_SUBST([enabled_modules])
-AC_SUBST([bad_modules])
-AM_SUBST_NOTMAKE([enabled_modules])
-AM_SUBST_NOTMAKE([bad_modules])
+AC_SUBST([ENABLED_MODULES])
+AM_SUBST_NOTMAKE([ENABLED_MODULES])
+AC_SUBST([BAD_MODULES])
+AM_SUBST_NOTMAKE([BAD_MODULES])
+AC_SUBST([FIRST_DRAW_DELAY])
+AM_SUBST_NOTMAKE([FIRST_DRAW_DELAY])
 ### Done MODULES
 
 ### composite engine

@@ -69,6 +69,9 @@ ln -sf ../enlightenment.service %{buildroot}%{_unitdir}/graphical.target.wants/e
 ln -sf ../enlightenment.service %{buildroot}%{_unitdir}/graphical.target.wants/enlightenment.service
 ln -sf ../display-manager.service %{buildroot}%{_unitdir}/graphical.target.wants/display-manager.service
 ln -sf ../display-manager-run.service %{buildroot}%{_unitdir}/graphical.target.wants/display-manager-run.service
+
+%__mkdir_p %{buildroot}/usr/share/X11/xkb
+%__cp -rf keylayout/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
 %endif
 
 %pre
@@ -106,4 +109,5 @@ fi
 %{_unitdir}/graphical.target.wants/display-manager-run.service
 %{_sysconfdir}/sysconfig/enlightenment
 %{_sysconfdir}/profile.d/enlightenment.sh
+/usr/share/X11/xkb/tizen_key_layout.txt
 %endif

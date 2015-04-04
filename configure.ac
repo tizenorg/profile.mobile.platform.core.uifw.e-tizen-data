@@ -89,13 +89,15 @@ elif test "$WITH_WAYLAND"; then
       value "priority" int: 0;
     }
     group "E_Config_Module" struct {
-      value "name" string: "policy_mobile";
+      value "name" string: "e-mod-tizen-wm-policy";
       value "enabled" uchar: 1;
       value "delayed" uchar: 0;
       value "priority" int: 0;
     }
   }'
- bad_modules=''
+ bad_modules='group "bad_modules" list {
+    value "module" string: "e-mod-tizen-wm-policy";
+  }'
 fi
 AC_SUBST([enabled_modules])
 AC_SUBST([bad_modules])

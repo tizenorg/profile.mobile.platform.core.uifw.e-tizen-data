@@ -2,7 +2,7 @@
 %bcond_with x
 
 Name:          e-tizen-data
-Version:       0.0.7
+Version:       0.0.8
 Release:       0
 BuildArch:     noarch
 Summary:       Enlightenment data files
@@ -71,6 +71,9 @@ ln -sf ../display-manager.service %{buildroot}%{_unitdir}/graphical.target.wants
 ln -sf ../display-manager-run.service %{buildroot}%{_unitdir}/graphical.target.wants/display-manager-run.service
 %endif
 
+%__mkdir_p %{buildroot}/usr/share/X11/xkb
+%__cp -rf keylayout/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
+
 %pre
 if [ ! -e "/usr/share/enlightenment/data/config" ]
 then
@@ -107,3 +110,4 @@ fi
 %{_sysconfdir}/sysconfig/enlightenment
 %{_sysconfdir}/profile.d/enlightenment.sh
 %endif
+/usr/share/X11/xkb/tizen_key_layout.txt

@@ -11,7 +11,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "menu";
+            value "shadow_style" string: "none";
         }
     }
     group "match.overrides" list {
@@ -28,7 +28,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "everything";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "primary_type" int: 9;
@@ -41,7 +41,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "menu";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "primary_type" int: 10;
@@ -54,7 +54,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "menu";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "primary_type" int: 13;
@@ -67,7 +67,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "menu";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "primary_type" int: 11;
@@ -80,7 +80,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "menu";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "primary_type" int: 4;
@@ -93,7 +93,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "menu";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "primary_type" int: 14;
@@ -106,7 +106,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "still";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "primary_type" int: 2;
@@ -132,7 +132,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "popup";
+            value "shadow_style" string: "none";
         }
     }
     group "match.borders" list {
@@ -147,7 +147,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "fullscreen";
+            value "shadow_style" string: "none";
         }
     }
     group "match.popups" list {
@@ -163,7 +163,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "popup";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "name" string: "_e_popup_desklock";
@@ -177,7 +177,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "still";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "name" string: "_e_popup_notification";
@@ -191,7 +191,7 @@ group "Comp_Config" struct {
             value "focus" char: 1;
             value "urgent" char: 0;
             value "no_shadow" char: 1;
-            value "shadow_style" string: "still";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "name" string: "E Drag";
@@ -205,7 +205,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 1;
-            value "shadow_style" string: "still";
+            value "shadow_style" string: "none";
         }
         group "Comp_Match" struct {
             value "primary_type" int: 0;
@@ -218,7 +218,7 @@ group "Comp_Config" struct {
             value "focus" char: 0;
             value "urgent" char: 0;
             value "no_shadow" char: 0;
-            value "shadow_style" string: "popup";
+            value "shadow_style" string: "none";
         }
     }
     value "version" int: 1;

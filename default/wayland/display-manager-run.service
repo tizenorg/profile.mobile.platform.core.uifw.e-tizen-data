@@ -1,10 +1,13 @@
 [Unit]
 Description=Display manager run service
-Requires=enlightenment.service
-After=enlightenment.service
 
 [Service]
-Type=oneshot
+Type=notify
+NotifyAccess=all
+EnvironmentFile=/etc/sysconfig/enlightenment
+ExecStart=/usr/bin/enlightenment
+Restart=always
+RestartSec=10
 
 [Install]
 WantedBy=graphical.target

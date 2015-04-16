@@ -46,6 +46,8 @@ rm -rf %{buildroot}
 %__cp -afr default/config/*.cfg          %{buildroot}/usr/share/enlightenment/data/config
 %__cp -afr default/config/tizen-mobile/*.cfg %{buildroot}/usr/share/enlightenment/data/config/tizen-mobile
 %__cp -afr default/backgrounds/*.edj     %{buildroot}/usr/share/enlightenment/data/backgrounds
+%__mkdir_p %{buildroot}/usr/share/X11/xkb
+%__cp -rf keylayout/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
 
 %if %{with x}
 %__mkdir_p %{buildroot}%{_unitdir}
@@ -55,37 +57,46 @@ ln -sf ../enlightenment.service %{buildroot}%{_unitdir}/graphical.target.wants/e
 %endif
 
 %if %{with wayland}
-%__mkdir_p %{buildroot}%{_unitdir}
-%__cp -afr default/wayland/enlightenment.service %{buildroot}%{_unitdir}
-%__cp -afr default/wayland/display-manager.path %{buildroot}%{_unitdir}
-%__cp -afr default/wayland/display-manager.service %{buildroot}%{_unitdir}
-%__cp -afr default/wayland/display-manager-run.service %{buildroot}%{_unitdir}
-%__mkdir_p %{buildroot}%{_sysconfdir}/sysconfig
-%__cp -afr default/wayland/enlightenment %{buildroot}%{_sysconfdir}/sysconfig
-%__mkdir_p %{buildroot}%{_sysconfdir}/profile.d
-%__cp -afr default/wayland/enlightenment.sh %{buildroot}%{_sysconfdir}/profile.d
+%define daemon_user display
+%define daemon_group display
 
-%__mkdir_p %{buildroot}%{_unitdir}/graphical.target.wants
-ln -sf ../enlightenment.service %{buildroot}%{_unitdir}/graphical.target.wants/enlightenment.service
-ln -sf ../display-manager.service %{buildroot}%{_unitdir}/graphical.target.wants/display-manager.service
-ln -sf ../display-manager-run.service %{buildroot}%{_unitdir}/graphical.target.wants/display-manager-run.service
+# install service
+%__mkdir_p %{buildroot}%{_unitdir}
+install -m 644 default/wayland/display-manager-run.service %{buildroot}%{_unitdir}
+install -m 644 default/wayland/display-manager.service %{buildroot}%{_unitdir}
+install -m 644 default/wayland/display-manager.path %{buildroot}%{_unitdir}
+
+# install env file for service
+%__mkdir_p %{buildroot}%{_sysconfdir}/sysconfig
+install -m 0644 default/wayland/enlightenment %{buildroot}%{_sysconfdir}/sysconfig
+
+# install tmpfiles.d(5) conf
+mkdir -p %{buildroot}%{_prefix}/lib/tmpfiles.d
+install -m 0644 default/wayland/enlightenment_tmpfiles.conf %{buildroot}%{_prefix}/lib/tmpfiles.d/enlightenment.conf
+
+# install enlightenment.sh
+%__mkdir_p %{buildroot}%{_sysconfdir}/profile.d
+install -m 0644 default/wayland/enlightenment.sh %{buildroot}%{_sysconfdir}/profile.d
+
 %endif
 
-%__mkdir_p %{buildroot}/usr/share/X11/xkb
-%__cp -rf keylayout/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
-
 %pre
-if [ ! -e "/usr/share/enlightenment/data/config" ]
-then
-	mkdir -p /usr/share/enlightenment/data/config
-fi
+%if %{with wayland}
+# create groups 'display'
+getent group %{daemon_group} >/dev/null || %{_sbindir}/groupadd -r -o %{daemon_group}
 
-if [ ! -e "/usr/share/enlightenment/data/backgrounds" ]
-then
-	mkdir -p /usr/share/enlightenment/data/backgrounds
-fi
+# create user 'display'
+getent passwd %{daemon_user} >/dev/null || %{_sbindir}/useradd -r -g %{daemon_group} -d /run/display -s /bin/false -c "Display daemon" %{daemon_user}
 
-%post
+# setup display manager service
+%__mkdir_p %{_unitdir}/graphical.target.wants/
+ln -sf ../display-manager.path  %{_unitdir}/graphical.target.wants/
+%endif
+
+%postun
+%if %{with wayland}
+rm -f %{_unitdir}/graphical.target.wants/display-manager.path
+%endif
 
 %files
 %manifest %{name}.manifest
@@ -100,14 +111,11 @@ fi
 %{_unitdir}/graphical.target.wants/enlightenment.service
 %endif
 %if %{with wayland}
-%{_unitdir}/enlightenment.service
 %{_unitdir}/display-manager.path
 %{_unitdir}/display-manager.service
 %{_unitdir}/display-manager-run.service
-%{_unitdir}/graphical.target.wants/enlightenment.service
-%{_unitdir}/graphical.target.wants/display-manager.service
-%{_unitdir}/graphical.target.wants/display-manager-run.service
-%{_sysconfdir}/sysconfig/enlightenment
-%{_sysconfdir}/profile.d/enlightenment.sh
+%{_prefix}/lib/tmpfiles.d/enlightenment.conf
+%config %{_sysconfdir}/sysconfig/enlightenment
+%config %{_sysconfdir}/profile.d/enlightenment.sh
 %endif
 /usr/share/X11/xkb/tizen_key_layout.txt

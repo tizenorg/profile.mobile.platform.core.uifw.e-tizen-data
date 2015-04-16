@@ -4,4 +4,4 @@ Requires=display-manager-run.service
 After=display-manager-run.service
 
 [Path]
-PathExists=/usr/bin/enlightenment
+PathExists=/tmp/wayland-0

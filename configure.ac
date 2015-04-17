@@ -89,6 +89,12 @@ elif test "$WITH_WAYLAND"; then
       value "priority" int: 0;
     }
     group "E_Config_Module" struct {
+      value "name" string: "wl_screenshot";
+      value "enabled" uchar: 1;
+      value "delayed" uchar: 0;
+      value "priority" int: 0;
+    }
+    group "E_Config_Module" struct {
       value "name" string: "e-mod-tizen-wm-policy";
       value "enabled" uchar: 1;
       value "delayed" uchar: 0;

@@ -6,6 +6,7 @@ Type=notify
 NotifyAccess=all
 EnvironmentFile=/etc/sysconfig/enlightenment
 ExecStart=/usr/bin/enlightenment
+ExecStartPost=/usr/bin/touch /run/.wm_ready
 Restart=always
 RestartSec=10
 

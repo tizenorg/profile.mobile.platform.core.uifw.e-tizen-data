@@ -124,6 +124,12 @@ elif test "$WITH_WAYLAND"; then
       value "delayed" uchar: 0;
       value "priority" int: 0;
     }
+    group "E_Config_Module" struct {
+      value "name" string: "bufferqueue";
+      value "enabled" uchar: 1;
+      value "delayed" uchar: 0;
+      value "priority" int: 0;
+    }
   }'
  bad_modules='group "bad_modules" list {
     value "module" string: "e-mod-tizen-wm-policy";
@@ -131,6 +137,7 @@ elif test "$WITH_WAYLAND"; then
     value "module" string: "e-mod-tizen-keyrouter";
     value "module" string: "e-mod-tizen-wl-textinput";
     value "module" string: "e-mod-tizen-qpmgr";
+    value "module" string: "bufferqueue";
   }'
 fi
 AC_SUBST([enabled_modules])

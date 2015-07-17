@@ -47,7 +47,7 @@ rm -rf %{buildroot}
 %__cp -afr default/config/tizen-mobile/*.cfg %{buildroot}/usr/share/enlightenment/data/config/tizen-mobile
 %__cp -afr default/backgrounds/*.edj     %{buildroot}/usr/share/enlightenment/data/backgrounds
 %__mkdir_p %{buildroot}/usr/share/X11/xkb
-%__cp -rf keylayout/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
+%__cp -rf default/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
 
 %if %{with x}
 %__mkdir_p %{buildroot}%{_unitdir}

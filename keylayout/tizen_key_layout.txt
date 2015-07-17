@@ -18,7 +18,7 @@ XF86AudioMedia 226
 XF86AudioPlayPause 164
 XF86AudioMute 113
 XF86AudioRecord 167
-Cancel 223
+Cancel 223 keyboard
 XF86SoftKBD 148
 XF86QuickPanel 183
 XF86TaskPane 184
@@ -29,7 +29,7 @@ XF86ScreenSaver 152
 XF86MonBrightnessDown 224
 XF86MonBrightnessUp 225
 XF86Voice 149
-Hangul 122
+Hangul 122 keyboard
 XF86Apps 204
 XF86Call 218
 XF86Game 220

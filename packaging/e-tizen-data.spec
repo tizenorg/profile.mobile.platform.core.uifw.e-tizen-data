@@ -46,8 +46,6 @@ rm -rf %{buildroot}
 %__cp -afr default/config/*.cfg          %{buildroot}/usr/share/enlightenment/data/config
 %__cp -afr default/config/tizen-mobile/*.cfg %{buildroot}/usr/share/enlightenment/data/config/tizen-mobile
 %__cp -afr default/backgrounds/*.edj     %{buildroot}/usr/share/enlightenment/data/backgrounds
-%__mkdir_p %{buildroot}/usr/share/X11/xkb
-%__cp -rf keylayout/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
 
 %if %{with x}
 %__mkdir_p %{buildroot}%{_unitdir}
@@ -78,6 +76,8 @@ install -m 0644 default/wayland/enlightenment_tmpfiles.conf %{buildroot}%{_prefi
 %__mkdir_p %{buildroot}%{_sysconfdir}/profile.d
 install -m 0644 default/wayland/enlightenment.sh %{buildroot}%{_sysconfdir}/profile.d
 
+%__mkdir_p %{buildroot}/usr/share/X11/xkb
+%__cp -f default/wayland/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
 %endif
 
 %pre
@@ -117,5 +117,5 @@ rm -f %{_unitdir}/graphical.target.wants/display-manager.path
 %{_prefix}/lib/tmpfiles.d/enlightenment.conf
 %config %{_sysconfdir}/sysconfig/enlightenment
 %config %{_sysconfdir}/profile.d/enlightenment.sh
-%endif
 /usr/share/X11/xkb/tizen_key_layout.txt
+%endif

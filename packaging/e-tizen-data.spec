@@ -90,12 +90,14 @@ getent passwd %{daemon_user} >/dev/null || %{_sbindir}/useradd -r -g %{daemon_gr
 
 # setup display manager service
 %__mkdir_p %{_unitdir}/graphical.target.wants/
-ln -sf ../display-manager.path  %{_unitdir}/graphical.target.wants/
+ln -sf ../display-manager.path %{_unitdir}/graphical.target.wants/
+ln -sf ../display-manager-run.service %{_unitdir}/graphical.target.wants/
 %endif
 
 %postun
 %if %{with wayland}
 rm -f %{_unitdir}/graphical.target.wants/display-manager.path
+rm -f %{_unitdir}/graphical.target.wants/display-manager-run.service
 %endif
 
 %files

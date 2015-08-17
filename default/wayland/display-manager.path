@@ -2,4 +2,4 @@
 Description=Wait for display daemon socket
 
 [Path]
-PathExists=/tmp/wayland-0
+PathExists=/run/wayland-0

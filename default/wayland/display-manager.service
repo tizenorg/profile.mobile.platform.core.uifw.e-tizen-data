@@ -3,9 +3,9 @@ Description=Display manager setup service
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/chmod g+w /tmp/wayland-0
-ExecStart=/usr/bin/chgrp display /tmp/wayland-0
-ExecStart=/usr/bin/chsmack -a User /tmp/wayland-0
+ExecStart=/usr/bin/chmod g+w /run/wayland-0
+ExecStart=/usr/bin/chgrp display /run/wayland-0
+ExecStart=/usr/bin/chsmack -a User /run/wayland-0
 
 [Install]
 WantedBy=graphical.target

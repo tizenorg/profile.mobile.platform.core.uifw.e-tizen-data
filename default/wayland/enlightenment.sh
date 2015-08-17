@@ -6,4 +6,4 @@
 #export ECORE_IMF_MODULE=wayland
 
 # workaround systemd bug in pam_systemd module
-export XDG_RUNTIME_DIR=/tmp
+export XDG_RUNTIME_DIR=/run

@@ -64,6 +64,10 @@ install -m 644 default/wayland/display-manager-run.service %{buildroot}%{_unitdi
 install -m 644 default/wayland/display-manager.service %{buildroot}%{_unitdir}
 install -m 644 default/wayland/display-manager.path %{buildroot}%{_unitdir}
 
+%__mkdir_p %{buildroot}%{_unitdir_user}
+install -m 644 default/wayland/enlightenment-user.service %{buildroot}%{_unitdir_user}
+install -m 644 default/wayland/enlightenment-user.path %{buildroot}%{_unitdir_user}
+
 # install env file for service
 %__mkdir_p %{buildroot}%{_sysconfdir}/sysconfig
 install -m 0644 default/wayland/enlightenment %{buildroot}%{_sysconfdir}/sysconfig
@@ -92,12 +96,16 @@ getent passwd %{daemon_user} >/dev/null || %{_sbindir}/useradd -r -g %{daemon_gr
 %__mkdir_p %{_unitdir}/graphical.target.wants/
 ln -sf ../display-manager.path %{_unitdir}/graphical.target.wants/
 ln -sf ../display-manager-run.service %{_unitdir}/graphical.target.wants/
+
+%__mkdir_p %{_unitdir_user}/default.target.wants
+ln -sf ../enlightenment-user.path %{_unitdir_user}/default.target.wants/
 %endif
 
 %postun
 %if %{with wayland}
 rm -f %{_unitdir}/graphical.target.wants/display-manager.path
 rm -f %{_unitdir}/graphical.target.wants/display-manager-run.service
+rm -f %{_unitdir_user}/default.target.wants/enlightenment-user.path
 %endif
 
 %files
@@ -116,6 +124,8 @@ rm -f %{_unitdir}/graphical.target.wants/display-manager-run.service
 %{_unitdir}/display-manager.path
 %{_unitdir}/display-manager.service
 %{_unitdir}/display-manager-run.service
+%{_unitdir_user}/enlightenment-user.path
+%{_unitdir_user}/enlightenment-user.service
 %{_prefix}/lib/tmpfiles.d/enlightenment.conf
 %config %{_sysconfdir}/sysconfig/enlightenment
 %config %{_sysconfdir}/profile.d/enlightenment.sh

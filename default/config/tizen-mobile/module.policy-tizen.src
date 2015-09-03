@@ -1,0 +1,7 @@
+group "Policy_Mobile_Config" struct {
+  value "launcher.title" string: "Illume Home";
+  value "launcher.clas" string: "Illume-Home";
+  value "launcher.type" uint: 8;
+  value "use_softkey" int: 0;
+  value "softkey_size" int: 42;
+}

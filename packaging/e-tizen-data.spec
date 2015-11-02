@@ -2,7 +2,7 @@
 %bcond_with x
 
 Name:          e-tizen-data
-Version:       0.0.26
+Version:       0.0.27
 Release:       0
 BuildArch:     noarch
 Summary:       Enlightenment data files

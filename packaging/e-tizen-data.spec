@@ -80,8 +80,6 @@ install -m 0644 default/wayland/enlightenment_tmpfiles.conf %{buildroot}%{_prefi
 %__mkdir_p %{buildroot}%{_sysconfdir}/profile.d
 install -m 0644 default/wayland/enlightenment.sh %{buildroot}%{_sysconfdir}/profile.d
 
-%__mkdir_p %{buildroot}/usr/share/X11/xkb
-%__cp -f default/wayland/tizen_key_layout.txt %{buildroot}/usr/share/X11/xkb/tizen_key_layout.txt
 %endif
 
 %pre
@@ -129,5 +127,4 @@ rm -f %{_unitdir_user}/default.target.wants/enlightenment-user.path
 %{_prefix}/lib/tmpfiles.d/enlightenment.conf
 %config %{_sysconfdir}/sysconfig/enlightenment
 %config %{_sysconfdir}/profile.d/enlightenment.sh
-/usr/share/X11/xkb/tizen_key_layout.txt
 %endif

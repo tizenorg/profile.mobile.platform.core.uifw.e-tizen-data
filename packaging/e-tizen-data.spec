@@ -72,10 +72,6 @@ install -m 644 default/wayland/enlightenment-user.path %{buildroot}%{_unitdir_us
 %__mkdir_p %{buildroot}%{_sysconfdir}/sysconfig
 install -m 0644 default/wayland/enlightenment %{buildroot}%{_sysconfdir}/sysconfig
 
-# install tmpfiles.d(5) conf
-mkdir -p %{buildroot}%{_prefix}/lib/tmpfiles.d
-install -m 0644 default/wayland/enlightenment_tmpfiles.conf %{buildroot}%{_prefix}/lib/tmpfiles.d/enlightenment.conf
-
 # install enlightenment.sh
 %__mkdir_p %{buildroot}%{_sysconfdir}/profile.d
 install -m 0644 default/wayland/enlightenment.sh %{buildroot}%{_sysconfdir}/profile.d

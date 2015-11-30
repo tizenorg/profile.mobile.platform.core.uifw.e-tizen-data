@@ -14,6 +14,7 @@ BuildRequires: pkgconfig(eet)
 BuildRequires: pkgconfig(edje)
 BuildRequires: eet-bin
 BuildRequires: edje-tools
+BuildRequires: xkb-tizen-data
 Requires:      enlightenment
 
 %description
@@ -22,6 +23,8 @@ Data and configuration files for enlightenment
 %prep
 %setup -q
 cp -a %{SOURCE1001} .
+
+default/config/tizen-mobile/make_keymap_conf.sh
 
 %build
 %autogen

@@ -3,6 +3,7 @@ MAINTAINERCLEANFILES = Makefile.in
 EET_EET = @eet_eet@
 
 EXTRA_DIST = \
+             module.keyrouter.src \
              module.policy-tizen.src \
              e_bindings.src \
              e_comp.src \
@@ -10,6 +11,7 @@ EXTRA_DIST = \
 
 filesdir = $(prefix)/data/config/tizen-mobile/
 files_DATA = \
+             module.keyrouter.cfg \
              module.policy-tizen.cfg \
              e_bindings.cfg \
              e_comp.cfg \

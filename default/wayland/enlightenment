@@ -6,3 +6,4 @@ E_START=enlightenment
 ECORE_DRM_DEVICE_USER_HANDLER=1
 ELM_PROFILE=mobile
 ECTOR_BACKEND=default
+HOME=/var/lib/enlightenment

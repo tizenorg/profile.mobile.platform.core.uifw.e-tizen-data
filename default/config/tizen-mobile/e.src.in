@@ -240,4 +240,6 @@ group "E_Config" struct {
   value "wm_win_rotation" uchar: 1;
   value "desktop_default_background" string: "Black_Screen.edj";
   value "window_activehint_policy" int: 2;
+  value "use_cursor_timer" int: 0;
+  value "cursor_timer_interval" int: 5;
 }

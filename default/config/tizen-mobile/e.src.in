@@ -242,4 +242,5 @@ group "E_Config" struct {
   value "window_activehint_policy" int: 2;
   value "use_cursor_timer" int: 0;
   value "cursor_timer_interval" int: 5;
+  value "iconify_if_obscured" uchar: 1;
 }

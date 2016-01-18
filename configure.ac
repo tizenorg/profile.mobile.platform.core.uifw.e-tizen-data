@@ -125,12 +125,6 @@ elif test "$WITH_WAYLAND"; then
       value "priority" int: 0;
     }
     group "E_Config_Module" struct {
-      value "name" string: "e-mod-tizen-qpmgr";
-      value "enabled" uchar: 1;
-      value "delayed" uchar: 0;
-      value "priority" int: 0;
-    }
-    group "E_Config_Module" struct {
       value "name" string: "bufferqueue";
       value "enabled" uchar: 1;
       value "delayed" uchar: 0;
@@ -143,7 +137,6 @@ elif test "$WITH_WAYLAND"; then
     value "module" string: "e-mod-tizen-keyrouter";
     value "module" string: "e-mod-tizen-eom";
     value "module" string: "e-mod-tizen-wl-textinput";
-    value "module" string: "e-mod-tizen-qpmgr";
     value "module" string: "bufferqueue";
   }'
 fi

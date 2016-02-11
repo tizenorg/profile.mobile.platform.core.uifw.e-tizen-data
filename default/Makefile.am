@@ -1,2 +1,2 @@
 MAINTAINERCLEANFILES = Makefile.in
-SUBDIRS = backgrounds config
+SUBDIRS = backgrounds config themes

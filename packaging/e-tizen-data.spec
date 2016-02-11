@@ -2,7 +2,7 @@
 %bcond_with x
 
 Name:          e-tizen-data
-Version:       0.1.1
+Version:       0.1.2
 Release:       0
 BuildArch:     noarch
 Summary:       Enlightenment data files
@@ -46,9 +46,11 @@ rm -rf %{buildroot}
 
 %__mkdir_p %{buildroot}/usr/share/enlightenment/data/config/tizen-mobile
 %__mkdir_p %{buildroot}/usr/share/enlightenment/data/backgrounds
+%__mkdir_p %{buildroot}/usr/share/enlightenment/data/themes
 %__cp -afr default/config/*.cfg          %{buildroot}/usr/share/enlightenment/data/config
 %__cp -afr default/config/tizen-mobile/*.cfg %{buildroot}/usr/share/enlightenment/data/config/tizen-mobile
 %__cp -afr default/backgrounds/*.edj     %{buildroot}/usr/share/enlightenment/data/backgrounds
+%__cp -afr default/themes/*.edj     %{buildroot}/usr/share/enlightenment/data/themes
 
 %if %{with x}
 %__mkdir_p %{buildroot}%{_unitdir}
@@ -111,6 +113,7 @@ rm -f %{_unitdir_user}/default.target.wants/enlightenment-user.path
 %license COPYING
 /usr/share/enlightenment/data
 /usr/share/enlightenment/data/backgrounds/*.edj
+/usr/share/enlightenment/data/themes/*.edj
 /usr/share/enlightenment/data/config/*.cfg
 /usr/share/enlightenment/data/config/tizen-mobile/*.cfg
 %if %{with x}

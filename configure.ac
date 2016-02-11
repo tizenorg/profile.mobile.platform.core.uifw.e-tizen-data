@@ -185,6 +185,7 @@ default/Makefile
 default/backgrounds/Makefile
 default/config/Makefile
 default/config/tizen-mobile/Makefile
+default/themes/Makefile
 ])
 AC_OUTPUT([
 ])

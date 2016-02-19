@@ -240,7 +240,6 @@ group "Comp_Config" struct {
     value "send_flush" uchar: 1;
     value "send_dump" uchar: 1;
     value "nocomp_fs" uchar: 0;
-    value "hwc" uchar: 0;
     value "nofade" uchar: 0;
     value "smooth_windows" uchar: 0;
     value "first_draw_delay" double: 0.1499999999999999944488849;

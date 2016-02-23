@@ -21,11 +21,15 @@ cat ${KEYROUTER_CONFIG_FILE_PATH} | sed '$d' > ${KEYROUTER_TEMP_FILE_PATH}
 
 echo "$WS group \"KeyList\" list {" >> ${KEYROUTER_TEMP_FILE_PATH}
 
-while read KEYNAME KEYCODE
+while read KEYNAME KEYCODE KEYBOARD_OPT
 do
 	VAL_KEYCODE=$(echo $KEYCODE | awk '{print $1}')
 	NUM_KEYCODE=$(echo $NUM_KEYCODE 1 | awk '{print $1 + $2}')
 	WINSYS_KEYCODE=$(echo $VAL_KEYCODE $KEYGAP | awk '{print $1 + $2}')
+	NO_PRIVCHECK=0
+
+	[[ $KEYBOARD_OPT == *"no_priv"* ]] && NO_PRIVCHECK=1
+
 	if [ "$MAX_KEYCODE" -lt "$WINSYS_KEYCODE" ]
 	then
 		MAX_KEYCODE=$WINSYS_KEYCODE
@@ -33,6 +37,7 @@ do
 	echo "$WS $WS group \"E_Keyrouter_Config_Key\" struct {" >> $KEYROUTER_TEMP_FILE_PATH
 	echo "$WS $WS $WS value "name" string: \"$KEYNAME\";" >> $KEYROUTER_TEMP_FILE_PATH
 	echo "$WS $WS $WS value "keycode" int: $WINSYS_KEYCODE;" >> $KEYROUTER_TEMP_FILE_PATH
+	echo "$WS $WS $WS value "no_privcheck" int: $NO_PRIVCHECK;" >> $KEYROUTER_TEMP_FILE_PATH
 	echo "$WS $WS }" >> $KEYROUTER_TEMP_FILE_PATH
 done < ${KEYMAP_FILE_PATH}
 

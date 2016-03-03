@@ -8,3 +8,4 @@ ELM_PROFILE=mobile
 ECTOR_BACKEND=default
 HOME=/var/lib/enlightenment
 TBM_DISPLAY_SERVER=1
+ECORE_INPUT_CANCEL=1

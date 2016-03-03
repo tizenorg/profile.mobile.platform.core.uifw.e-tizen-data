@@ -107,6 +107,12 @@ elif test "$WITH_WAYLAND"; then
       value "priority" int: 10;
     }
     group "E_Config_Module" struct {
+      value "name" string: "e-mod-tizen-gesture";
+      value "enabled" uchar: 1;
+      value "delayed" uchar: 0;
+      value "priority" int: 10;
+    }
+    group "E_Config_Module" struct {
       value "name" string: "e-mod-tizen-keyrouter";
       value "enabled" uchar: 1;
       value "delayed" uchar: 0;
@@ -140,6 +146,7 @@ elif test "$WITH_WAYLAND"; then
  bad_modules='group "bad_modules" list {
     value "module" string: "e-mod-tizen-wm-policy";
     value "module" string: "e-mod-tizen-devicemgr";
+    value "module" string: "e-mod-tizen-gesture";
     value "module" string: "e-mod-tizen-keyrouter";
     value "module" string: "e-mod-tizen-eom";
     value "module" string: "e-mod-tizen-wl-textinput";

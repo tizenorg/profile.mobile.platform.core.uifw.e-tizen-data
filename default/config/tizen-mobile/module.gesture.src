@@ -1,0 +1,3 @@
+group "Gesture_Config" struct {
+	value "flick_enable" int 1;
+}

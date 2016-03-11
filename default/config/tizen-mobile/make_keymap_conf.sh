@@ -1,7 +1,11 @@
 #!/bin/sh
 
+if [ "$TZ_SYS_RO_SHARE" = "" ]; then
+	TZ_SYS_RO_SHARE="/usr/share"
+fi
+
 TIZEN_PROFILE="mobile"
-KEYMAP_FILE_PATH="/usr/share/X11/xkb/tizen_key_layout.txt"
+KEYMAP_FILE_PATH="${TZ_SYS_RO_SHARE}/X11/xkb/tizen_key_layout.txt"
 NUM_KEYCODE=0
 MAX_KEYCODE=0
 KEYROUTER_CONFIG_FILE_PATH="default/config/tizen-${TIZEN_PROFILE}/module.keyrouter.src"

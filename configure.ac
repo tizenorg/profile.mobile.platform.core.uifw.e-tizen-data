@@ -2,7 +2,7 @@ AC_INIT(e-tizen-data, 0.1, gl77.lee@samsung.com)
 AM_INIT_AUTOMAKE
 AC_CONFIG_SRCDIR(configure.ac)
 
-AC_PREFIX_DEFAULT(/usr/share/enlightenment)
+AC_PREFIX_DEFAULT($prefix)
 
 PKG_CHECK_MODULES(EET, [eet])
 AC_ARG_WITH(eet-eet,

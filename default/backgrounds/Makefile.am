@@ -3,7 +3,7 @@ MAINTAINERCLEANFILES = Makefile.in
 EDJE_CC = @EDJE_CC@
 EDJE_FLAGS = -v
 
-filesdir = /usr/share/enlightenment/data/backgrounds
+filesdir = ${TZ_SYS_RO_SHARE}/enlightenment/data/backgrounds
 files_DATA = \
 Black_Screen.edj
 

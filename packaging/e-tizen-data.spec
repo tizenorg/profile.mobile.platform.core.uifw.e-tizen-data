@@ -17,6 +17,8 @@ BuildRequires: edje-tools
 BuildRequires: xkb-tizen-data
 Requires:      enlightenment
 
+%global TZ_SYS_RO_SHARE  %{?TZ_SYS_RO_SHARE:%TZ_SYS_RO_SHARE}%{!?TZ_SYS_RO_SHARE:/usr/share}
+
 %description
 Data and configuration files for enlightenment
 
@@ -24,6 +26,7 @@ Data and configuration files for enlightenment
 %setup -q
 cp -a %{SOURCE1001} .
 
+export TZ_SYS_RO_SHARE="%{TZ_SYS_RO_SHARE}"
 default/config/tizen-mobile/make_keymap_conf.sh
 
 %build
@@ -38,19 +41,19 @@ default/config/tizen-mobile/make_keymap_conf.sh
     --with-systemdunitdir=%{_unitdir} \
     --with-engine=gl \
     --disable-skip-first-damage \
-    --prefix=/usr/share/enlightenment
+    --prefix=%{TZ_SYS_RO_SHARE}/enlightenment
 make
 
 %install
 rm -rf %{buildroot}
 
-%__mkdir_p %{buildroot}/usr/share/enlightenment/data/config/tizen-mobile
-%__mkdir_p %{buildroot}/usr/share/enlightenment/data/backgrounds
-%__mkdir_p %{buildroot}/usr/share/enlightenment/data/themes
-%__cp -afr default/config/*.cfg          %{buildroot}/usr/share/enlightenment/data/config
-%__cp -afr default/config/tizen-mobile/*.cfg %{buildroot}/usr/share/enlightenment/data/config/tizen-mobile
-%__cp -afr default/backgrounds/*.edj     %{buildroot}/usr/share/enlightenment/data/backgrounds
-%__cp -afr default/themes/*.edj     %{buildroot}/usr/share/enlightenment/data/themes
+%__mkdir_p %{buildroot}/%{TZ_SYS_RO_SHARE}/enlightenment/data/config/tizen-mobile
+%__mkdir_p %{buildroot}/%{TZ_SYS_RO_SHARE}/enlightenment/data/backgrounds
+%__mkdir_p %{buildroot}/%{TZ_SYS_RO_SHARE}/enlightenment/data/themes
+%__cp -afr default/config/*.cfg          %{buildroot}/%{TZ_SYS_RO_SHARE}/enlightenment/data/config
+%__cp -afr default/config/tizen-mobile/*.cfg %{buildroot}/%{TZ_SYS_RO_SHARE}/enlightenment/data/config/tizen-mobile
+%__cp -afr default/backgrounds/*.edj     %{buildroot}/%{TZ_SYS_RO_SHARE}/enlightenment/data/backgrounds
+%__cp -afr default/themes/*.edj     %{buildroot}/%{TZ_SYS_RO_SHARE}/enlightenment/data/themes
 
 %if %{with x}
 %__mkdir_p %{buildroot}%{_unitdir}
@@ -111,11 +114,11 @@ rm -f %{_unitdir_user}/default.target.wants/enlightenment-user.path
 %manifest %{name}.manifest
 %defattr(-,root,root,-)
 %license COPYING
-/usr/share/enlightenment/data
-/usr/share/enlightenment/data/backgrounds/*.edj
-/usr/share/enlightenment/data/themes/*.edj
-/usr/share/enlightenment/data/config/*.cfg
-/usr/share/enlightenment/data/config/tizen-mobile/*.cfg
+%{TZ_SYS_RO_SHARE}/enlightenment/data
+%{TZ_SYS_RO_SHARE}/enlightenment/data/backgrounds/*.edj
+%{TZ_SYS_RO_SHARE}/enlightenment/data/themes/*.edj
+%{TZ_SYS_RO_SHARE}/enlightenment/data/config/*.cfg
+%{TZ_SYS_RO_SHARE}/enlightenment/data/config/tizen-mobile/*.cfg
 %if %{with x}
 %{_unitdir}/enlightenment.service
 %{_unitdir}/graphical.target.wants/enlightenment.service

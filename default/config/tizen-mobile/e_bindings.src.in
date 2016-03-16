@@ -3,42 +3,6 @@ group "E_Config_Bindings" struct {
   group "signal_bindings" list {
     group "E_Config_Binding_Signal" struct {
       value "context" int: 2;
-      value "signal" string: "mouse,down,1,double";
-      value "source" string: "e.event.titlebar";
-      value "modifiers" int: 0;
-      value "any_mod" uchar: 1;
-      value "action" string: "window_shaded_toggle";
-      value "params" string: "up";
-    }
-    group "E_Config_Binding_Signal" struct {
-      value "context" int: 2;
-      value "signal" string: "mouse,down,2";
-      value "source" string: "e.event.titlebar";
-      value "modifiers" int: 0;
-      value "any_mod" uchar: 1;
-      value "action" string: "window_shaded_toggle";
-      value "params" string: "up";
-    }
-    group "E_Config_Binding_Signal" struct {
-      value "context" int: 2;
-      value "signal" string: "mouse,wheel,?,1";
-      value "source" string: "e.event.titlebar";
-      value "modifiers" int: 0;
-      value "any_mod" uchar: 1;
-      value "action" string: "window_shaded";
-      value "params" string: "0 up";
-    }
-    group "E_Config_Binding_Signal" struct {
-      value "context" int: 2;
-      value "signal" string: "mouse,wheel,?,-1";
-      value "source" string: "e.event.titlebar";
-      value "modifiers" int: 0;
-      value "any_mod" uchar: 1;
-      value "action" string: "window_shaded";
-      value "params" string: "1 up";
-    }
-    group "E_Config_Binding_Signal" struct {
-      value "context" int: 2;
       value "signal" string: "mouse,clicked,3";
       value "source" string: "e.event.titlebar";
       value "modifiers" int: 0;

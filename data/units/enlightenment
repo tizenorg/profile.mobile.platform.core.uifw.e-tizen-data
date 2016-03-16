@@ -1,5 +1,7 @@
 # env for display-manager-service.run
+E_CONF_PROFILE=tizen-mobile
 XDG_RUNTIME_DIR=/run
+XDG_CACHE_HOME=/run
 ECORE_DRM_TTY=/dev/tty1
 ECORE_EVAS_FORCE_SYNC_RENDER=1
 E_START=enlightenment
@@ -8,3 +10,4 @@ ELM_PROFILE=mobile
 ECTOR_BACKEND=default
 HOME=/var/lib/enlightenment
 TBM_DISPLAY_SERVER=1
+EDJE_NO_EFREET=1

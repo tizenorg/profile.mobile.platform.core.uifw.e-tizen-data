@@ -68,12 +68,6 @@ if test "$WITH_X"; then
       value "priority" int: 0;
     }
   }'
- bad_modules='group "bad_modules" list {
-    value "module" string: "e-mod-tizen-wm-policy";
-    value "module" string: "e-mod-tizen-keyrouter";
-    value "module" string: "e-mod-tizen-effect";
-    value "module" string: "e-mod-tizen-devicemgr";
-  }'
 elif test "$WITH_WAYLAND"; then
  enabled_modules='group "modules" list {
     group "E_Config_Module" struct {
@@ -84,12 +78,6 @@ elif test "$WITH_WAYLAND"; then
     }
     group "E_Config_Module" struct {
       value "name" string: "wl_desktop_shell";
-      value "enabled" uchar: 1;
-      value "delayed" uchar: 0;
-      value "priority" int: 0;
-    }
-    group "E_Config_Module" struct {
-      value "name" string: "wl_screenshot";
       value "enabled" uchar: 1;
       value "delayed" uchar: 0;
       value "priority" int: 0;
@@ -137,20 +125,9 @@ elif test "$WITH_WAYLAND"; then
       value "priority" int: 0;
     }
   }'
- bad_modules='group "bad_modules" list {
-    value "module" string: "e-mod-tizen-wm-policy";
-    value "module" string: "e-mod-tizen-devicemgr";
-    value "module" string: "e-mod-tizen-keyrouter";
-    value "module" string: "e-mod-tizen-eom";
-    value "module" string: "e-mod-tizen-wl-textinput";
-    value "module" string: "bufferqueue";
-    value "module" string: "e-mod-tizen-processmgr";
-  }'
 fi
 AC_SUBST([enabled_modules])
-AC_SUBST([bad_modules])
 AM_SUBST_NOTMAKE([enabled_modules])
-AM_SUBST_NOTMAKE([bad_modules])
 ### Done MODULES
 
 ### composite engine

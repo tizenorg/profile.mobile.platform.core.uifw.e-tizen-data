@@ -1,5 +1,5 @@
 Name:          e-tizen-data
-Version:       0.2.0
+Version:       0.2.1
 Release:       0
 BuildArch:     noarch
 Summary:       Enlightenment data files
@@ -13,6 +13,7 @@ BuildRequires: eet-bin
 BuildRequires: edje-tools
 BuildRequires: xkb-tizen-data
 Requires:      enlightenment
+Requires:      e-mod-tizen-gesture
 
 %global TZ_SYS_RO_SHARE  %{?TZ_SYS_RO_SHARE:%TZ_SYS_RO_SHARE}%{!?TZ_SYS_RO_SHARE:/usr/share}
 

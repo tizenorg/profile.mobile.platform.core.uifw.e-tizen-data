@@ -13,7 +13,6 @@ BuildRequires: eet-bin
 BuildRequires: edje-tools
 BuildRequires: xkb-tizen-data
 Requires:      enlightenment
-Requires:      e-mod-tizen-gesture
 
 %global TZ_SYS_RO_SHARE  %{?TZ_SYS_RO_SHARE:%TZ_SYS_RO_SHARE}%{!?TZ_SYS_RO_SHARE:/usr/share}
 

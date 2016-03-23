@@ -54,12 +54,6 @@ enabled_modules='group "modules" list {
      value "priority" int: 10;
    }
    group "E_Config_Module" struct {
-     value "name" string: "e-mod-tizen-gesture";
-     value "enabled" uchar: 1;
-     value "delayed" uchar: 0;
-     value "priority" int: 10;
-   }
-   group "E_Config_Module" struct {
      value "name" string: "e-mod-tizen-keyrouter";
      value "enabled" uchar: 1;
      value "delayed" uchar: 0;

@@ -55,9 +55,7 @@ cp -a %{_builddir}/%{buildsubdir}/COPYING %{buildroot}/%{TZ_SYS_RO_SHARE}/licens
 
 # install service
 %__mkdir_p %{buildroot}%{_unitdir}
-install -m 644 data/units/display-manager-run.service %{buildroot}%{_unitdir}
 install -m 644 data/units/display-manager.service %{buildroot}%{_unitdir}
-install -m 644 data/units/display-manager.path %{buildroot}%{_unitdir}
 
 %__mkdir_p %{buildroot}%{_unitdir_user}
 install -m 644 data/units/enlightenment-user.service %{buildroot}%{_unitdir_user}
@@ -80,15 +78,13 @@ getent passwd %{daemon_user} >/dev/null || %{_sbindir}/useradd -r -g %{daemon_gr
 
 # setup display manager service
 %__mkdir_p %{_unitdir}/graphical.target.wants/
-ln -sf ../display-manager.path %{_unitdir}/graphical.target.wants/
-ln -sf ../display-manager-run.service %{_unitdir}/graphical.target.wants/
+ln -sf ../display-manager.service %{_unitdir}/graphical.target.wants/
 
 %__mkdir_p %{_unitdir_user}/default.target.wants
 ln -sf ../enlightenment-user.path %{_unitdir_user}/default.target.wants/
 
 %postun
-rm -f %{_unitdir}/graphical.target.wants/display-manager.path
-rm -f %{_unitdir}/graphical.target.wants/display-manager-run.service
+rm -f %{_unitdir}/graphical.target.wants/display-manager.service
 rm -f %{_unitdir_user}/default.target.wants/enlightenment-user.path
 
 %files
@@ -100,9 +96,7 @@ rm -f %{_unitdir_user}/default.target.wants/enlightenment-user.path
 %{TZ_SYS_RO_SHARE}/enlightenment/data/themes/*.edj
 %{TZ_SYS_RO_SHARE}/enlightenment/data/config/*.cfg
 %{TZ_SYS_RO_SHARE}/enlightenment/data/config/tizen-mobile/*.cfg
-%{_unitdir}/display-manager.path
 %{_unitdir}/display-manager.service
-%{_unitdir}/display-manager-run.service
 %{_unitdir_user}/enlightenment-user.path
 %{_unitdir_user}/enlightenment-user.service
 %config %{_sysconfdir}/sysconfig/enlightenment

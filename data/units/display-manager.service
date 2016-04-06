@@ -1,11 +1,14 @@
 [Unit]
-Description=Display manager setup service
+Description=Display manager
 
 [Service]
-Type=oneshot
-ExecStart=/usr/bin/chmod g+w /run/wayland-0
-ExecStart=/usr/bin/chgrp display /run/wayland-0
-ExecStart=/usr/bin/chsmack -a User /run/wayland-0
+Type=notify
+NotifyAccess=all
+EnvironmentFile=/etc/sysconfig/enlightenment
+ExecStart=/usr/bin/enlightenment
+ExecStartPost=/usr/bin/touch /run/.wm_ready
+Restart=always
+RestartSec=10
 
 [Install]
 WantedBy=graphical.target

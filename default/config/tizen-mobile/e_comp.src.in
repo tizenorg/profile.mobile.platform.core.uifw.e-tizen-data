@@ -239,10 +239,10 @@ group "Comp_Config" struct {
     value "swap_mode" uchar: 0;
     value "send_flush" uchar: 1;
     value "send_dump" uchar: 1;
-    value "nocomp_fs" uchar: 0;
+    value "nocomp_fs" uchar: 1;
     value "nocomp_use_timer" uchar: 1;
-    value "nocomp_begin_timeout" double: 2.0;
-    value "hwc" uchar: 0;
+    value "nocomp_begin_timeout" double: 0.5;
+    value "hwc" uchar: 1;
     value "smooth_windows" uchar: 0;
     value "nofade" uchar: 0;
     value "first_draw_delay" double: 0.1499999999999999944488849;

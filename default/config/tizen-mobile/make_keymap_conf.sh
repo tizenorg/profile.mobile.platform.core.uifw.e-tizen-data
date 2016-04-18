@@ -10,11 +10,15 @@ NUM_KEYCODE=0
 MAX_KEYCODE=0
 KEYROUTER_CONFIG_FILE_PATH="default/config/tizen-${TIZEN_PROFILE}/module.keyrouter.src"
 KEYROUTER_TEMP_FILE_PATH="default/config/tizen-${TIZEN_PROFILE}/module.keyrouter.src.temp"
+DEVICEMGR_CONFIG_FILE_PATH="default/config/tizen-${TIZEN_PROFILE}/module.devicemgr.src"
+DEVICEMGR_TEMP_FILE_PATH="default/config/tizen-${TIZEN_PROFILE}/module.devicemgr.src.temp"
 GESTURE_CONFIG_FILE_PATH="default/config/tizen-${TIZEN_PROFILE}/module.gesture.src"
 GESTURE_TEMP_FILE_PATH="default/config/tizen-${TIZEN_PROFILE}/module.gesture.src.temp"
 WS="   "
 KEYGAP=8
 
+DEVICEMGR_BACK_KEY_OPTION=0
+DEVICEMGR_COMBINE_KEY_OPTION=0
 GESTURE_BACK_KEY_OPTION=0
 GESTURE_COMBINE_KEY_OPTION=0
 BACK_KEY_CODE=0
@@ -73,6 +77,52 @@ else
 		[[ $KEYNAME == "XF86Back" ]] && BACK_KEY_CODE=$VAL_KEYCODE
 		[[ $KEYNAME == "XF86PowerOff" ]] && POWER_KEY_CODE=$VAL_KEYCODE
 	done < ${KEYMAP_FILE_PATH}
+fi
+
+if [ -e ${DEVICEMGR_CONFIG_FILE_PATH} ]
+then
+	FOUND_BACK_KEY=0
+	echo "Check a devicemgr config file"
+	while read VTEMP VALUE_NAME VALUE_TYPE VALUE
+	do
+		if [ "$BACK_KEY_CODE" != "0" ]
+		then
+		[[ $VALUE_NAME == *"back_keycode"* ]] && DEVICEMGR_BACK_KEY_OPTION=1
+		fi
+
+		if [ $DEVICEMGR_BACK_KEY_OPTION == 1 ]
+		then
+			BACK_KEY_CODE=$(echo $BACK_KEY_CODE $KEYGAP | awk '{print $1 + $2}')
+			VALUE=$BACK_KEY_CODE";"
+			DEVICEMGR_BACK_KEY_OPTION=0
+			FOUND_BACK_KEY=1
+		fi
+		echo $VTEMP $VALUE_NAME $VALUE_TYPE $VALUE >> $DEVICEMGR_TEMP_FILE_PATH
+	done < ${DEVICEMGR_CONFIG_FILE_PATH}
+
+	mv $DEVICEMGR_TEMP_FILE_PATH $DEVICEMGR_CONFIG_FILE_PATH
+
+	if [ "$FOUND_BACK_KEY" == 0 ]
+	then
+		MENU_HEADER=0
+		while read LINE
+		do
+			echo $LINE
+			if [ "$MENU_HEADER" == "1" ]
+			then
+				BACK_KEY_CODE=$(echo $BACK_KEY_CODE $KEYGAP | awk '{print $1 + $2}')
+				echo "value \"input.back_keycode\" int: "$BACK_KEY_CODE";" >> $DEVICEMGR_TEMP_FILE_PATH
+				MENU_HEADER=2
+			fi
+			if [ "$MENU_HEADER" == "0" ]
+			then
+				[[ $LINE == *"\"Devicemgr_Config\""* ]] && MENU_HEADER=1
+			fi
+			echo $LINE >> $DEVICEMGR_TEMP_FILE_PATH
+		done < ${DEVICEMGR_CONFIG_FILE_PATH}
+
+		mv $DEVICEMGR_TEMP_FILE_PATH $DEVICEMGR_CONFIG_FILE_PATH
+	fi
 fi
 
 if [ -e ${GESTURE_CONFIG_FILE_PATH} ]

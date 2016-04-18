@@ -1,11 +1,11 @@
 group "Gesture_Config" struct {
-	value "keyboard_name" string: "Any";
+	value "key_device_name" string: "Any";
 	value "swipe.time_done" double: 0.5;
-	value "swipe.time_start" double: 0.01;
-	value "swipe.area_start" int: 50;
-	value "swipe.diff_fail" int: 100;
-	value "swipe.diff_success" int: 300;
-	value "swipe.combine_key" int: 124;
+	value "swipe.time_begin" double: 0.01;
+	value "swipe.area_offset" int: 50;
+	value "swipe.min_length" int: 100;
+	value "swipe.max_length" int: 300;
+	value "swipe.compose_key" int: 124;
 	value "swipe.back_key" int: 166;
 	value "swipe.default_enable_back" char: 1;
 }

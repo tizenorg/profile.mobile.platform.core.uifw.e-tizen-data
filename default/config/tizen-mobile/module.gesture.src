@@ -7,5 +7,5 @@ group "Gesture_Config" struct {
 	value "swipe.max_length" int: 300;
 	value "swipe.compose_key" int: 124;
 	value "swipe.back_key" int: 166;
-	value "swipe.default_enable_back" char: 1;
+	value "swipe.default_enable_back" char: 0;
 }

@@ -13,6 +13,7 @@ group "Policy_Mobile_Config" struct {
   }
   value "use_softkey" int: 0;
   value "softkey_size" int: 42;
+  value "max_new_client" int: 1;
   group "rotations" list {
     group "Policy_Mobile_Config_Rot" struct {
       value "enable" uchar: 1;

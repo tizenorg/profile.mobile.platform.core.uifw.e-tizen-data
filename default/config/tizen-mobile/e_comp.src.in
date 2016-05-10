@@ -250,6 +250,11 @@ group "Comp_Config" struct {
     value "disable_screen_effects" uchar: 0;
     value "enable_advanced_features" uchar: 0;
     value "launch_file" string: "/usr/share/enlightenment/data/themes/launch.edj";
+    value "canvas_bg.r" uchar: 0;
+    value "canvas_bg.g" uchar: 0;
+    value "canvas_bg.b" uchar: 0;
+    value "canvas_bg.a" uchar: 255;
+    value "canvas_bg.copy" uchar: 0;
     value "fast_popups" uchar: 0;
     value "fast_borders" uchar: 0;
     value "fast_menus" uchar: 0;

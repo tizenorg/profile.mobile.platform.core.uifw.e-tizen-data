@@ -63,6 +63,8 @@ group "E_Config" struct {
   value "dpms_suspend_timeout" int: 300;
   value "dpms_off_timeout" int: 300;
   value "no_dpms_on_fullscreen" int: 0;
+  value "sleep_for_dri" int: 0;
+  value "create_wm_ready" int: 0;
   value "mouse_hand" int: 1;
   value "border_raise_on_mouse_action" int: 1;
   value "border_raise_on_focus" int: 1;

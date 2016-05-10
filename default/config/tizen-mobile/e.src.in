@@ -119,4 +119,11 @@ group "E_Config" struct {
   value "wl_sock_access.owner" string: "root";
   value "wl_sock_access.group" string: "display";
   value "wl_sock_access.permissions" int: 509; // decimal for 0775
+  value "sleep_for_dri" int: 0;
+  value "create_wm_ready" int: 0;
+  value "comp_canvas_bg.r" uchar: 0;
+  value "comp_canvas_bg.g" uchar: 0;
+  value "comp_canvas_bg.b" uchar: 0;
+  value "comp_canvas_bg.a" uchar: 255;
+  value "comp_canvas_bg.opmode" int: 0;
 }

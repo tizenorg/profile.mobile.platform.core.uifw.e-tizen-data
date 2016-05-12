@@ -1,2 +1,43 @@
 group "Keyrouter_Config" struct {
+    group "ModifierList" list {
+        group "E_Keyrouter_Modifier_Key" struct {
+			group "ModKeys" list {
+				group "E_Keyrouter_Modkey_Name" struct {
+					value "name" string: "XF86Menu";
+				}
+				group "E_Keyrouter_Modkey_Name" struct {
+					value "name" string: "XF86Back";
+				}
+				group "E_Keyrouter_Modkey_Name" struct {
+					value "name" string: "XF86AudioLowerVolume";
+				}
+			}
+			value "num_modkeys" int: 3;
+			value "combination" uchar: 1;
+            value "press_only" uchar: 0;
+			value "action" int: 1;
+        }
+        group "E_Keyrouter_Modifier_Key" struct {
+			group "ModKeys" list {
+				group "E_Keyrouter_Modkey_Name" struct {
+					value "name" string: "XF86Back";
+				}
+				group "E_Keyrouter_Modkey_Name" struct {
+					value "name" string: "XF86Menu";
+				}
+				group "E_Keyrouter_Modkey_Name" struct {
+					value "name" string: "XF86AudioRaiseVolume";
+				}
+				group "E_Keyrouter_Modkey_Name" struct {
+					value "name" string: "XF86Menu";
+				}
+			}
+			value "num_modkeys" int: 4;
+			value "combination" uchar: 1;
+            value "press_only" uchar: 0;
+			value "action" int: 2;
+        }
+    }
+	value "num_modifier_keys" int: 22;
+	value "display_key_filter_mode" int: 0;
 }

@@ -116,9 +116,20 @@ group "E_Config" struct {
   }
   value "comp_shadow_file" string: "/usr/share/elementary/themes/default.edj";
   value "wl_sock_access.use" uchar: 1;
-  value "wl_sock_access.owner" string: "root";
-  value "wl_sock_access.group" string: "display";
-  value "wl_sock_access.permissions" int: 509; // decimal for 0775
+  value "wl_sock_access.owner" string: "root";    // uid 0
+  value "wl_sock_access.group" string: "display"; // gid 201
+  value "wl_sock_access.permissions" int: 509;    // decimal for 0775
+  value "wl_sock_access.smack.use" uchar: 0;
+  value "wl_sock_access.smack.name" string: "";
+  value "wl_sock_access.smack.value" string: "";
+  value "wl_sock_access.smack.flags" int: 0;
+  value "wl_sock_symlink_access.use" uchar: 0;
+  value "wl_sock_symlink_access.link_name" string: "";
+  value "wl_sock_symlink_access.owner" string: "";
+  value "wl_sock_symlink_access.group" string: "";
+  value "wl_sock_symlink_access.smack.name" string: "";
+  value "wl_sock_symlink_access.smack.value" string: "";
+  value "wl_sock_symlink_access.smack.flags" int: 0;
   value "sleep_for_dri" int: 0;
   value "create_wm_ready" int: 0;
   value "comp_canvas_bg.r" uchar: 0;

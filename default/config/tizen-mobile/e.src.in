@@ -94,6 +94,11 @@ group "E_Config" struct {
   value "xkb.default_model" string: "default";
   value "xkb.use_cache" int: 1;
   value "xkb.delay_held_key_input_to_focus" uint: 800;
+  value "xkb.default_rmlvo.rules" string: "evdev";
+  value "xkb.default_rmlvo.model" string: "pc105";
+  value "xkb.default_rmlvo.layout" string: "us";
+  value "xkb.default_rmlvo.variant" string: "";
+  value "xkb.default_rmlvo.options" string: "";
   value "keyboard.repeat_delay" int: 400;
   value "keyboard.repeat_rate" int: 25;
   value "use_desktop_window_profile" int: 0;

@@ -1,5 +1,5 @@
 Name:          e-tizen-data
-Version:       0.2.5
+Version:       0.2.6
 Release:       0
 BuildArch:     noarch
 Summary:       Enlightenment data files

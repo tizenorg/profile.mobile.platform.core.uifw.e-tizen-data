@@ -1,2 +1,3 @@
 group "Keyrouter_Config" struct {
+    value "pictureoff_disabled" int: 1;
 }

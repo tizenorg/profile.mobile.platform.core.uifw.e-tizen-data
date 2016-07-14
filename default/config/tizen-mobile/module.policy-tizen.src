@@ -23,7 +23,7 @@ group "Policy_Mobile_Config" struct {
       value "angle" int: 90;
     }
     group "Policy_Mobile_Config_Rot" struct {
-      value "enable" uchar: 1;
+      value "enable" uchar: 0;
       value "angle" int: 180;
     }
     group "Policy_Mobile_Config_Rot" struct {

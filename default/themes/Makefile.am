@@ -6,7 +6,10 @@ EDJE_FLAGS = -v	-id $(top_srcdir)/default/themes/img
 filesdir = ${TZ_SYS_RO_SHARE}/enlightenment/data/themes
 files_DATA = \
 	launch.edj \
-	default.edj
+	default.edj \
+	e-policy.edj
+
+created="launch.edj default.edj"
 
 EXTRA_DIST_LAUNCH = \
 	launch.edc
@@ -31,4 +34,4 @@ default.edj: Makefile $(EXTRA_DIST_DEFAULT)
 	$(top_builddir)/default/themes/default.edj
 
 clean-local:
-	rm -f *.edj
+	rm -f $(created)

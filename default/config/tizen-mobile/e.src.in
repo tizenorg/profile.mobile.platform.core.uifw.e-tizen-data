@@ -32,6 +32,21 @@ group "E_Config" struct {
   value "zone_desks_x_count" int: 1;
   value "zone_desks_y_count" int: 1;
   @enabled_modules@
+  value "use_e_policy" int: 0;
+  value "launcher.title" string: "Illume Home";
+  value "launcher.clas" string: "Illume-Home";
+  value "launcher.type" uint: 8;
+  group "policy_desks" list {
+    group "E_Config_Policy_Desk" struct {
+      value "comp_num" int: 0;
+      value "zone_num" uint: 0;
+      value "x" int: 0;
+      value "y" int: 0;
+      value "enable" int: 1;
+    }
+  }
+  value "use_softkey" int: 0;
+  value "softkey_size" int: 42;
   value "window_placement_policy" int: 0;
   value "focus_policy" int: 0;
   value "focus_policy_ext" int: 1;

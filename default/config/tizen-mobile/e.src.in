@@ -117,7 +117,7 @@ group "E_Config" struct {
       value "client_type" int: 2;
     }
   }
-  value "comp_shadow_file" string: "/usr/share/elementary/themes/default.edj";
+  value "comp_shadow_file" string: "/usr/share/enlightenment/data/themes/default.edj";
   value "wl_sock_access.use" uchar: 1;
   value "wl_sock_access.owner" string: "root";    // uid 0
   value "wl_sock_access.group" string: "display"; // gid 201

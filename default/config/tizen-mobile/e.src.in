@@ -32,7 +32,7 @@ group "E_Config" struct {
   value "zone_desks_x_count" int: 1;
   value "zone_desks_y_count" int: 1;
   @enabled_modules@
-  value "use_e_policy" int: 0;
+  value "use_e_policy" int: 1;
   value "launcher.title" string: "Illume Home";
   value "launcher.clas" string: "Illume-Home";
   value "launcher.type" uint: 8;
